@@ -13,13 +13,17 @@ const SignUpForm = (props) => {
             const response = await fetch('https://fsa-jwt-practice.herokuapp.com/signup', {
                 method: "POST",
                 body: {
+                    //key value pairs name are the same
+                    //so we can just use the key name once instead of
+                    //username: username,
+                    //password: password
                     username,
                     password
                 }
             })
             const data = await response.json()
-            console.log(data)
             props.setToken(data.token)
+            console.log(data)
             
         } catch (err) {
             setError(err.message)
